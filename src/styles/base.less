@@ -1,0 +1,37 @@
+
+.generate-size-steps(@step: 1) when (@step <= 20) {
+    @size-value: (4px * @step);
+    --size-@{step}: @size-value;
+    .generate-size-steps(@step + 1);
+}
+
+:root {
+    --font-family           : -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-family-code      : 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+    // 文本大小
+    --font-size-base             : 14px;                                        // 14px (核心正文字号)
+    --font-size-small            : calc(var(--font-size-base) - 2px);           // 12px (辅助说明/标签/Tooltip)
+    --font-size-medium           : calc(var(--font-size-base) + 2px);           // 16px (卡片标题/中标题)
+    --font-size-large            : calc(var(--font-size-base) + 6px);           // 20px (页面主标题/Modal 标题)
+
+    // 圆角 
+    --border-radius-base         : 0.375rem;                                    // 6px  (核心基准：按钮/输入框)
+    --border-radius-small        : calc(var(--border-radius-base) - 2px);       // 4px  (微型元素：标签/徽标)
+    --border-radius-medium       : calc(var(--border-radius-base) + 4px);       // 10px (中型容器：卡片/下拉面板)
+    --border-radius-large        : calc(var(--border-radius-base) + 8px);       // 14px (大型容器：模态弹窗/抽屉)
+    --border-radius-full         : 9999px;                                      // 胶囊/全圆
+
+    // 控件基准高度：按钮、输入框、选择器的高度基准（保证整齐对齐）
+    --control-height-base        : 32px;                             // 标准
+    --control-height-small       : 24px;                             // 紧凑型
+    --control-height-medium      : 40px;                             // 大号
+    --control-height-large       : 48px;                             // 加大号
+
+    // 按压
+    --active-filter                 : brightness(.95) saturate(1.1);
+
+    // 间距尺寸 (Sizes 1-20: 4px ~ 80px)
+    // --size-{index}: index * 4px;
+    .generate-size-steps()
+}

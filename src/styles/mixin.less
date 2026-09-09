@@ -1,0 +1,8 @@
+.size(@n: 1, @step: 4px) {
+    // $step-px: if(math.is-unitless($step), $step * 1px, $step);
+    // @return $n * $step-px;
+}
+
+.generate-size-vars(@step: 4px, @max: 20) {
+    // --size-#{@i}: #{size(@i, @step)};
+}

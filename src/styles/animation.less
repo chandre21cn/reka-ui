@@ -1,0 +1,136 @@
+/* Shared keyframes */
+@keyframes ui-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes ui-fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes ui-fade-in-scale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes ui-fade-out-scale {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+@keyframes ui-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes ui-collapsible-down {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: var(--reka-collapsible-content-height);
+    }
+}
+
+@keyframes ui-collapsible-up {
+    from {
+        height: var(--reka-collapsible-content-height);
+    }
+
+    to {
+        height: 0;
+    }
+}
+
+@keyframes ui-accordion-up {
+    from {
+        height: var(--reka-accordion-content-height);
+    }
+
+    to {
+        height: 0;
+    }
+}
+
+@keyframes ui-accordion-down {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: var(--reka-accordion-content-height);
+    }
+}
+
+
+
+@keyframes ui-dialog-show {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -48%) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes ui-dialog-hide {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -48%) scale(0.95);
+    }
+}
+
+@keyframes ui-slide-from-bottom {
+    0% {
+        transform: translateX(var(--size-1)) scale(0.97);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes ui-slide-from-top {
+    0% {
+        transform: translateX(var(--size-1)) scale(0.97);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}

@@ -1,0 +1,87 @@
+.ui-listbox {
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--color-border);
+    outline: 0;
+    padding: 0 var(--size-3);
+    height: var(--control-height-base);
+    font-size: var(--font-size-base);
+    border-radius: var(--border-radius-base);
+
+    &-content {
+        background-color: var(--color-fill-2);
+        box-shadow: var(--shadow-6);
+        border-radius: var(--border-radius-medium);
+        min-width: var(--reka-popper-anchor-width);
+        max-height: var(--reka-popper-available-height);
+        padding: var(--size-2);
+        animation-name: ui-fade-in-scale;
+        animation-duration: 0.16s;
+        animation-timing-function: cubic-bezier(.16,1,.3,1);
+    }
+
+    &-item {
+        outline: none;
+        position: relative;
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        height: var(--control-height-base);
+        padding: 0 var(--size-3);
+        padding-left: var(--size-6);
+        border-radius: var(--border-radius-base);
+        color: var(--color-text-1);
+        font-size: var(--font-size-base);
+        &[data-highlighted] {
+            color: var(--color-white-a12);
+            background-color: var(--color-primary-9);
+        }
+        &.no-indicator {
+            padding-left: var(--size-3);
+        }
+    }
+
+    &-scroll-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: var(--control-height-small);
+        color: var(--color-text-3);
+        &:hover {
+            color: var(--color-text-2);
+        }
+    }
+
+    &-indicator {
+        position: absolute;
+        left: 0;
+        width: var(--size-6);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &-label {
+
+    }
+
+    &-shortcut, &-right-button {
+        display: flex;
+        align-items: center;
+        color: var(--color-text-3);
+        font-size: var(--font-size-small);
+        margin-left: auto;
+        padding-left: var(--size-4);
+        
+        [data-highlighted] & {
+            color: var(--color-white-a12);
+        }
+    }
+    &-right-button {
+        cursor: pointer;
+    }
+}
