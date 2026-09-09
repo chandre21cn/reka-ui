@@ -35,7 +35,6 @@ const forwarded = useForwardPropsEmits(props, emits);
     align-items: stretch;
     height: var(--control-height-base);
     vertical-align: middle;
-    background-color: var();
     font-size: var(--font-size-base);
     background-color: var(--color-fill-3);
     border-radius: var(--border-radius-base);

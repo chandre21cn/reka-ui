@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Button } from './components/Button';
-import { Dialog, Alert} from './components/Dialog';
-import { Slider } from './components/Slider';
-import { Segmented, SegmentedItem } from './components/Segmented';
-import { Progress } from './components/Progress'
-import { DropdownMenu, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuShortcut } from './components/DropdownMenu';
-import { Splitter } from './components/Splitter';
-import { Select, Input, Autocomplete } from './components/Input';
+import { Button } from '../src/components/Button';
+import { Dialog, Alert} from '../src/components/Dialog';
+import { Slider } from '../src/components/Slider';
+import { Segmented, SegmentedItem } from '../src/components/Segmented';
+import { Progress } from '../src/components/Progress'
+import { DropdownMenu, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuShortcut } from '../src/components/DropdownMenu';
+import { Splitter } from '../src/components/Splitter';
+import { Select, Input, Autocomplete } from '../src/components/Input';
 import { User } from 'lucide-vue-next';
-import { Form, FormItem } from './components/Form'
-import { Space } from './components/Space';
-import Toast from './components/Toast';
+import { Form, FormItem } from '../src/components/Form'
+import { Space } from '../src/components/Space';
+import Toast from '../src/components/Toast';
 
 const themeRef = ref(false)
 function onClickTheme() {

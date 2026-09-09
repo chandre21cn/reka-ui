@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ToastDescription, ToastProvider, ToastRoot, ToastViewport } from 'reka-ui'
+import { ToastDescription, ToastRoot } from 'reka-ui'
 import { ref, watch, onMounted } from 'vue';
 import { InfoIcon, XCircleIcon, CheckCircle2, AlertCircleIcon } from 'lucide-vue-next';
 
