@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Fragment, Comment, useSlots, type VNode, computed } from 'vue';
+import { Fragment, Comment, h, useSlots, type VNode } from 'vue';
 import { type SpaceVariants, spaceVariants } from '.'
 
 interface SpaceProps {
@@ -14,41 +14,44 @@ const props = withDefaults(defineProps<SpaceProps>(), {
 
 const slots = useSlots()
 
-const flattenedChildren = computed(() => {
-    const children = slots.default ? slots.default() : [];
+const getFlattenedChildren = (vnodes: VNode[]): VNode[] => {
     const result: VNode[] = [];
+    
+    vnodes.forEach(vnode => {
+        if (vnode.type === Comment) {
+            return;
+        }
+        if (vnode.type === Fragment && Array.isArray(vnode.children)) {
+            result.push(...getFlattenedChildren(vnode.children as VNode[]));
+        } else {
+            result.push(vnode);
+        }
+    });
 
-    const flatten = (vnodes: VNode[]) => {
-        vnodes.forEach(vnode => {
-            if (vnode.type === Comment) {
-                return;
-            }
-            if (vnode.type === Fragment && Array.isArray(vnode.children)) {
-                flatten(vnode.children as VNode[])
-            } else {
-                result.push(vnode);
-            }
-        })
-    }
-    flatten(children)
     return result;
-})
+}
+
+const RenderSpace = () => {
+    const children = slots.default ? slots.default() : [];
+    const flattened = getFlattenedChildren(children);
+
+    const items = flattened.map((child, index) => {
+        return h('div', {
+            class: 'ui-space-item',
+            key: child.key ?? index
+        }, [ child ]);
+    });
+
+    return h('div', {
+        class: [ spaceVariants(props) ],
+        style: { gap: `${props.size}px` }
+    }, items);
+}
 
 </script>
 
 <template>
-    <div 
-        :class="[ spaceVariants(props), $attrs.class ]" 
-        :style="{ gap: `${ size }px` }"
-    >
-        <div 
-            v-for="(child, index) in flattenedChildren" 
-            :key="child.key ?? index"
-            class="ui-space-item"
-        >
-            <component :is="child" />
-        </div>
-    </div>
+    <RenderSpace />
 </template>
 
 <style lang="less">
