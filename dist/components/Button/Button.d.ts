@@ -13,7 +13,7 @@ type __VLS_Slots = {} & {
     default?: (props: typeof __VLS_13) => any;
 };
 declare const __VLS_base: import('vue').DefineComponent<Props, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<Props> & Readonly<{}>, {
-    variant: "primary" | "secondary" | null;
+    variant: "primary" | "secondary" | "text" | null;
     status: "primary" | "normal" | "success" | "danger" | "warning" | null;
     size: "base" | "small" | "medium" | "large" | null;
     isLoading: boolean;

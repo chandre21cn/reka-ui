@@ -9,3 +9,5 @@ export * from './Slider';
 export * from './Space';
 export * from './Splitter';
 export * from './Toast';
+export * from './Tag';
+export * from './ScrollArea';
