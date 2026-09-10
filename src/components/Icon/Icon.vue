@@ -7,11 +7,17 @@
 <script lang="ts" setup>
     import { computed } from 'vue'
     
-    const props = defineProps({
-        prefix: { type: String, default: 'icon' },
-        name: { type: String, required: true },
-        color: { type: String, default: 'currentColor' },
-        size: { type: [ Number, String ], default: 14  }
+    interface IconProps {
+        prefix?: string;
+        name: string;
+        color?: string;
+        size?: string | number;
+    }
+
+    const props = withDefaults(defineProps<IconProps>(), {
+        prefix: 'icon',
+        color: 'currentColor',
+        size: 14
     })
 
     const styles = computed(() => {
