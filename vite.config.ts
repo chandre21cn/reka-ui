@@ -18,7 +18,8 @@ export default defineConfig({
             cleanVueFileName: true,
             exclude: [
                 'node_modules', 
-                'exp',
+                'src/App.vue',
+                'src/main.ts',
                 'vite.config.ts'
             ]
         })

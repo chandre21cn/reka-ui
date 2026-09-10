@@ -31,15 +31,19 @@
     .generate-color-alpha-steps(primary, @color-primary-name, @appearance);
 
     .generate-color-steps(danger,  @color-danger-name,  @appearance);
-    .generate-color-alpha-steps(danger, @color-primary-name, @appearance);
+    .generate-color-alpha-steps(danger, @color-danger-name, @appearance);
 
     .generate-color-steps(success, @color-success-name, @appearance);
-    .generate-color-alpha-steps(success, @color-primary-name, @appearance);
+    .generate-color-alpha-steps(success, @color-success-name, @appearance);
 
     .generate-color-steps(warning, @color-warning-name, @appearance);
-    .generate-color-alpha-steps(warning, @color-primary-name, @appearance);
+    .generate-color-alpha-steps(warning, @color-warning-name, @appearance);
 
     .generate-color-steps(neutral, @color-neutral-name, @appearance);
+
+    // 填充层 / 遮罩阶梯色
+    .generate-color-steps(fill, @color-neutral-name, @appearance);
+    .generate-color-alpha-steps(fill, @color-neutral-name, @appearance);
 
     // 文字阶梯色
     --color-text-1                  : var(--color-neutral-12);
@@ -47,9 +51,7 @@
     --color-text-3                  : var(--color-neutral-10);
     --color-text-4                  : var(--color-neutral-9);
 
-    // 填充层 / 遮罩阶梯色
-    .generate-color-steps(fill, @color-neutral-name, @appearance);
-    .generate-color-alpha-steps(fill, @color-neutral-name, @appearance);
+    
 
     // 边框阶梯色
     --color-border                  : var(--color-neutral-7);

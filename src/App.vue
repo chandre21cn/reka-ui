@@ -8,10 +8,11 @@ import { Progress } from '../src/components/Progress'
 import { DropdownMenu, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuShortcut } from '../src/components/DropdownMenu';
 import { Splitter } from '../src/components/Splitter';
 import { Select, Input, Autocomplete } from '../src/components/Input';
-import { User } from 'lucide-vue-next';
+import { CableIcon, User } from 'lucide-vue-next';
 import { Form, FormItem } from '../src/components/Form'
 import { Space } from '../src/components/Space';
 import Toast from '../src/components/Toast';
+import { ScrollArea, Tag } from './index.ts'
 
 const themeRef = ref(false)
 function onClickTheme() {
@@ -62,7 +63,10 @@ const inputValue = ref('')
         </div>
 
         <div style="padding: 10px 40px;">
-            <Button @click="onClickTheme">切换主题</Button>
+            <Button @click="onClickTheme">
+                <CableIcon />
+                切换主题
+            </Button>
             <span style="margin: 0 0.2em;"></span>
             <Button size="small">Button</Button>
             <span style="margin: 0 0.2em;"></span>
@@ -75,6 +79,16 @@ const inputValue = ref('')
             <Button is-loading>Button</Button>
         </div>
         <div style="padding: 0px 40px 10px;">
+            <Button variant='secondary' size="small"><CableIcon /></Button>
+            <span style="margin: 0 0.2em;"></span>
+            <Button variant='secondary'><CableIcon /></Button>
+            <span style="margin: 0 0.2em;"></span>
+            <Button variant='secondary' size='medium'><CableIcon /></Button>
+            <span style="margin: 0 0.2em;"></span>
+            <Button variant='secondary' size="large"><CableIcon /></Button>
+        </div>
+        <div style="padding: 0px 40px 10px;">
+            <span style="margin: 0 0.2em;"></span>
             <Button variant='secondary'>Button</Button>
             <span style="margin: 0 0.2em;"></span>
             <Button variant="secondary" status="success">Button</Button>
@@ -82,6 +96,15 @@ const inputValue = ref('')
             <Button variant="secondary" status="danger">Button</Button>
             <span style="margin: 0 0.2em;"></span>
             <Button variant="secondary" status="warning">Button</Button>
+        </div>
+        <div style="padding: 0px 40px 10px;">
+            <Button variant='text'>Button</Button>
+            <span style="margin: 0 0.2em;"></span>
+            <Button variant="text" status="success">Button</Button>
+            <span style="margin: 0 0.2em;"></span>
+            <Button variant="text" status="danger">Button</Button>
+            <span style="margin: 0 0.2em;"></span>
+            <Button variant="text" status="warning">Button</Button>
         </div>
         <div style="padding: 0px 40px 10px;">
             <Button variant="primary">Button</Button>
@@ -92,7 +115,17 @@ const inputValue = ref('')
             <span style="margin: 0 0.2em;"></span>
             <Button variant="primary" status="warning">Button</Button>
         </div>
-        
+        <div style="padding: 0px 40px 10px;">
+            <Tag>Tag 标签</Tag>
+            <span style="margin: 0 0.2em;"></span>
+            <Tag type="primary">Tag</Tag>
+            <span style="margin: 0 0.2em;"></span>
+            <Tag type="danger">Tag 标签</Tag>
+            <span style="margin: 0 0.2em;"></span>
+            <Tag type="success">Tag 标签</Tag>
+            <span style="margin: 0 0.2em;"></span>
+            <Tag type="warning">Tag 标签</Tag>
+        </div>
         <div style="padding: 0px 40px 10px;">
             <Dialog :width="400" title="提示" description="This action cannot be undone. Are you sure you want to permanently delete this file from our servers?">
                 <template #trigger>
@@ -236,7 +269,16 @@ const inputValue = ref('')
                 <Button>Button</Button>
             </Space>
         </div>
-
+        <div style="padding: 20px 40px 10px;">
+            <ScrollArea style="width: 200px; height: 200px; border: 1px solid var(--color-border);">
+                <div>
+                    <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                    <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                    <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                    <p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>6</p>
+                </div>
+            </ScrollArea>
+        </div>
         <div style="padding: 20px 40px 10px;">
             <div style="width: 500px; height: 300px; border: 1px solid var(--color-border)">
                 <Splitter>
@@ -245,7 +287,7 @@ const inputValue = ref('')
         </div>
 </template>
 
-<style lang="scss">
+<style lang="less">
 body {
     background-color: var(--color-fill-1);
 }

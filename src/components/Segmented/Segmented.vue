@@ -59,7 +59,7 @@ const forwarded = useForwardPropsEmits(props, emits);
         cursor: pointer;
         position: relative;
         display: flex;
-        padding: 0 var(--size-3);
+        padding: 0 var(--size-2);
         justify-content: center;
         align-items: center;
         color: var(--color-text-2);
@@ -94,10 +94,10 @@ const forwarded = useForwardPropsEmits(props, emits);
         padding: 0 var(--size-2);
     }
     &_medium &-item {
-        padding: 0 var(--size-4);
+        padding: 0 var(--size-3);
     }
     &_large &-item {
-        padding: 0 var(--size-5);
+        padding: 0 var(--size-4);
     }
 }
 </style>

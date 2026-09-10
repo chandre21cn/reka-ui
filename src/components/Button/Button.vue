@@ -50,6 +50,12 @@ const props = withDefaults(defineProps<Props>(), {
     cursor: pointer;
     transition: background-color 0.1s ease, colors 0.2s;
     outline: 0;
+    gap: var(--size-2);
+
+    svg {
+        width: 1em;
+        height: 1em;
+    }
 
     &:disabled {
         cursor: not-allowed;
@@ -67,9 +73,6 @@ const props = withDefaults(defineProps<Props>(), {
     }
 
     &_loader {
-        width: 1rem;
-        height: 1rem;
-        margin-right: 0.5rem;
         animation: ui-spin 1s linear infinite;
     }
 
@@ -82,20 +85,20 @@ const props = withDefaults(defineProps<Props>(), {
             border-radius: var(--border-radius-small);
         }
         &_base {
-            padding: 0 var(--size-3);
+            padding: 0 var(--size-2);
             height: var(--control-height-base);
             font-size: var(--font-size-base);
             border-radius: var(--border-radius-base);
         }
         &_medium {
-            padding: 0 var(--size-4);
+            padding: 0 var(--size-3);
             height: var(--control-height-medium);
             font-size: var(--font-size-medium);
             border-radius: var(--border-radius-base);
             border-radius: var(--border-radius-medium);
         }
         &_large {
-            padding: 0 var(--size-5);
+            padding: 0 var(--size-4);
             height: var(--control-height-large);
             font-size: var(--font-size-medium);
             border-radius: var(--border-radius-large);
@@ -176,6 +179,35 @@ const props = withDefaults(defineProps<Props>(), {
         background-color: var(--color-success-9);
         &:hover, &:active {
             background-color: var(--color-success-10);
+        }
+    }
+
+    // 文本类型
+    &-text {
+        color: var(--color-text-2);
+        &:hover,&:active {
+            color: var(--color-text-1);
+        }
+    }
+
+    &-text&-status_danger {
+        color: var(--color-danger-9);
+        &:hover,&:active {
+            color: var(--color-danger-10);
+        }
+    }
+
+    &-text&-status_success {
+        color: var(--color-success-9);
+        &:hover,&:active {
+            color: var(--color-success-10);
+        }
+    }
+
+    &-text&-status_warning {
+        color: var(--color-warning-9);
+        &:hover,&:active {
+            color: var(--color-warning-10);
         }
     }
 

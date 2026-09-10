@@ -6,6 +6,7 @@ export const buttonVariants = cva('ui-button', {
         variant: {
             'primary': 'ui-button-primary',
             'secondary': 'ui-button-secondary',
+            'text': 'ui-button-text',
         },
         status: {
             'normal': 'ui-button-status_normal',
