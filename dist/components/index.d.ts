@@ -11,3 +11,4 @@ export * from './Splitter';
 export * from './Toast';
 export * from './Tag';
 export * from './ScrollArea';
+export * from './SliderCaptcha';

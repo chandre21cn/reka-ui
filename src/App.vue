@@ -12,7 +12,7 @@ import { CableIcon, User } from 'lucide-vue-next';
 import { Form, FormItem } from '../src/components/Form'
 import { Space } from '../src/components/Space';
 import Toast from '../src/components/Toast';
-import { ScrollArea, Tag } from './index.ts'
+import { ScrollArea, SliderCaptcha, Tag } from './index.ts'
 
 const themeRef = ref(false)
 function onClickTheme() {
@@ -253,6 +253,15 @@ const inputValue = ref('')
                 <FormItem label="音量" description="请输入6-18位字母、数字或特殊字符">
                     <template #extra>{{ numberValue[0] }} %</template>
                     <Slider :step="0.1"  :min="0" :max="100" v-model="numberValue" />
+                </FormItem>
+                <FormItem>
+                    <SliderCaptcha :request="async () => {
+                        throw new Error('请求失败')
+                        return {
+                            key: '',
+                            ttl: 180,
+                        }
+                    }" />
                 </FormItem>
                 <FormItem>
                     <Button variant="primary" long>登录</Button>
