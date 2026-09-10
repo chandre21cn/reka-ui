@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Fragment, h, useSlots, type VNode } from 'vue';
+import { Fragment, Comment, useSlots, type VNode, computed } from 'vue';
 import { type SpaceVariants, spaceVariants } from '.'
 
 interface SpaceProps {
@@ -14,28 +14,25 @@ const props = withDefaults(defineProps<SpaceProps>(), {
 
 const slots = useSlots()
 
-const SlotItem = () => {
+const flattenedChildren = computed(() => {
     const children = slots.default ? slots.default() : [];
-    const flattendChildren: VNode[] = [];
+    const result: VNode[] = [];
+
     const flatten = (vnodes: VNode[]) => {
         vnodes.forEach(vnode => {
+            if (vnode.type === Comment) {
+                return;
+            }
             if (vnode.type === Fragment && Array.isArray(vnode.children)) {
                 flatten(vnode.children as VNode[])
             } else {
-                flattendChildren.push(vnode);
+                result.push(vnode);
             }
         })
     }
-
     flatten(children)
-
-    return flattendChildren.map((child, index) => {
-        return h('div', {
-            class: 'ui-space-item',
-            key: child.key ?? index
-        }, [ child ])
-    })
-}
+    return result;
+})
 
 </script>
 
@@ -44,7 +41,13 @@ const SlotItem = () => {
         :class="[ spaceVariants(props), $attrs.class ]" 
         :style="{ gap: `${ size }px` }"
     >
-        <SlotItem />
+        <div 
+            v-for="(child, index) in flattenedChildren" 
+            :key="child.key ?? index"
+            class="ui-space-item"
+        >
+            <component :is="child" />
+        </div>
     </div>
 </template>
 
