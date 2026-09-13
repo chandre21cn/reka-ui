@@ -7,6 +7,9 @@ export const spaceVariants = cva('ui-space', {
             'horizontal': 'ui-space-horizontal',
             'vertical': 'ui-space-vertical',
         },
+        fill: {
+            true: 'ui-space-fill'
+        }
     },
     defaultVariants: {
         direction: 'horizontal',

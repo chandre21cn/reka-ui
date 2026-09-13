@@ -1,9 +1,5 @@
 import { VNode } from 'vue';
 import { SpaceVariants } from '.';
-export interface SpaceProps {
-    size?: number;
-    direction?: SpaceVariants['direction'];
-}
 declare const _default: typeof __VLS_export;
 export default _default;
 declare const __VLS_export: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -14,6 +10,10 @@ declare const __VLS_export: import('vue').DefineComponent<import('vue').ExtractP
     direction: {
         type: () => SpaceVariants["direction"];
         default: string;
+    };
+    fill: {
+        type: () => SpaceVariants["fill"];
+        default: boolean;
     };
 }>, () => VNode<import('vue').RendererNode, import('vue').RendererElement, {
     [key: string]: any;
@@ -26,7 +26,12 @@ declare const __VLS_export: import('vue').DefineComponent<import('vue').ExtractP
         type: () => SpaceVariants["direction"];
         default: string;
     };
+    fill: {
+        type: () => SpaceVariants["fill"];
+        default: boolean;
+    };
 }>> & Readonly<{}>, {
     size: number;
+    fill: boolean | null | undefined;
     direction: "vertical" | "horizontal" | null | undefined;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;

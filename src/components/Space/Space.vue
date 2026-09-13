@@ -2,11 +2,6 @@
 import { defineComponent, Fragment, Comment, h, type VNode } from 'vue';
 import { type SpaceVariants, spaceVariants } from '.';
 
-export interface SpaceProps {
-    size?: number;
-    direction?: SpaceVariants['direction'];
-}
-
 export default defineComponent({
     name: 'Space',
     props: {
@@ -17,6 +12,10 @@ export default defineComponent({
         direction: {
             type: String as () => SpaceVariants['direction'],
             default: 'horizontal'
+        },
+        fill: {
+            type: Boolean as () => SpaceVariants['fill'],
+            default: false,
         }
     },
     setup(props, { slots, attrs }) {
@@ -80,6 +79,9 @@ export default defineComponent({
         }
         &-item {
             display: inline-flex;
+        }
+        &-space-fill &-space-item {
+            flex: 1
         }
     }
 </style>

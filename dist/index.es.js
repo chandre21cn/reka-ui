@@ -788,6 +788,10 @@ var Ct = /*#__PURE__*/ Y(bt, [["render", St]]), wt = { class: "ui-form-item" }, 
 		direction: {
 			type: String,
 			default: "horizontal"
+		},
+		fill: {
+			type: Boolean,
+			default: !1
 		}
 	},
 	setup(e, { slots: r, attrs: i }) {
@@ -813,10 +817,13 @@ var Ct = /*#__PURE__*/ Y(bt, [["render", St]]), wt = { class: "ui-form-item" }, 
 		};
 	}
 }), Yt = e("ui-space", {
-	variants: { direction: {
-		horizontal: "ui-space-horizontal",
-		vertical: "ui-space-vertical"
-	} },
+	variants: {
+		direction: {
+			horizontal: "ui-space-horizontal",
+			vertical: "ui-space-vertical"
+		},
+		fill: { true: "ui-space-fill" }
+	},
 	defaultVariants: { direction: "horizontal" }
 }), Xt = { class: "ui-splitter-extra" }, Zt = /* @__PURE__ */ u({
 	__name: "Splitter",
