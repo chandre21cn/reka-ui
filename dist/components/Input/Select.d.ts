@@ -9,12 +9,13 @@ interface SelectProps extends SelectRootProps {
     placeholder?: string;
     size?: InputVariants['size'];
     data: string[] | number[] | SelectOptionData[];
+    modelValue?: string | number;
 }
-declare var __VLS_14: {}, __VLS_21: {};
+declare var __VLS_14: {}, __VLS_27: {};
 type __VLS_Slots = {} & {
     prefix?: (props: typeof __VLS_14) => any;
 } & {
-    suffix?: (props: typeof __VLS_21) => any;
+    suffix?: (props: typeof __VLS_27) => any;
 };
 declare const __VLS_base: import('vue').DefineComponent<SelectProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     "update:modelValue": (value: import('reka-ui').AcceptableValue) => any;

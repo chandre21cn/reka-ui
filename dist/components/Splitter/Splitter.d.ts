@@ -5,13 +5,15 @@ interface SplitterProps {
     asideTop?: Partial<SplitterPanelProps>;
     asideBottom?: Partial<SplitterPanelProps>;
 }
-declare var __VLS_14: {}, __VLS_43: {}, __VLS_56: {};
+declare var __VLS_14: {}, __VLS_43: {}, __VLS_56: {}, __VLS_58: {};
 type __VLS_Slots = {} & {
     default?: (props: typeof __VLS_14) => any;
 } & {
     top?: (props: typeof __VLS_43) => any;
 } & {
     bottom?: (props: typeof __VLS_56) => any;
+} & {
+    extra?: (props: typeof __VLS_58) => any;
 };
 declare const __VLS_base: import('vue').DefineComponent<SplitterProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     resize: (size: number, prevSize: number | undefined) => any;

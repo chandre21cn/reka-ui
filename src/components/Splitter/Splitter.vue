@@ -25,9 +25,8 @@ function onResize(size: number, prevSize?: number) {
 
         <SplitterResizeHandle class="ui-splitter-handle"/>
 
-        <SplitterPanel v-bind="aside" @collapse="emits('collapse')" @expand="emits('expand')" @resize="onResize">
+        <SplitterPanel class="ui-splitter-aside" v-bind="aside" @collapse="emits('collapse')" @expand="emits('expand')" @resize="onResize">
             <SplitterGroup direction="vertical">
-
                 <SplitterPanel class="ui-splitter-panel" v-bind="asideTop">
                     <slot name="top" />
                 </SplitterPanel>
@@ -37,8 +36,11 @@ function onResize(size: number, prevSize?: number) {
                 <SplitterPanel class="ui-splitter-panel"  v-bind="asideBottom">
                     <slot name="bottom" />
                 </SplitterPanel>
-
             </SplitterGroup>
+
+            <div class="ui-splitter-extra">
+                <slot name="extra" />
+            </div>
         </SplitterPanel>
     </SplitterGroup>
 </template>
@@ -76,6 +78,14 @@ function onResize(size: number, prevSize?: number) {
             &:after {
                 background-color: var(--color-fill-a8);
             }
+        }
+    }
+
+    &-aside {
+        display: flex;
+        flex-direction: column;
+        &-extra {
+            flex-shrink: 0;
         }
     }
 }
