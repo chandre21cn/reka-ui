@@ -59,14 +59,14 @@ function onResize(size: number, prevSize?: number) {
             background-color: var(--color-fill-a7);
         }
         &[data-orientation="horizontal"] {
-            width: var(--size-2);
+            width: var(--size-3);
             &:after {
                 width: var(--size-1);
                 height: 3rem;
             }
         }
         &[data-orientation="vertical"] {
-            height: var(--size-2);
+            height: var(--size-3);
             &:after {
                 width: 3rem;
                 height: var(--size-1);
