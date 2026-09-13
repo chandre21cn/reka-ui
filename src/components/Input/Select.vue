@@ -67,12 +67,12 @@ const options = computed(() => {
         </SelectTrigger>
 
         <SelectPortal>
-            <SelectContent position="item-aligned" class="ui-listbox-content">
+            <SelectContent position='popper' :side-offset="4" class="ui-listbox-content">
                 <SelectScrollUpButton class="ui-listbox-scroll-button">
                     <ChevronUp :size="14" />
                 </SelectScrollUpButton>
 
-                <SelectViewport>
+                <SelectViewport >
                     <SelectItem v-for="option in options" class="ui-listbox-item" :value="option.value">
                         <SelectItemIndicator class="ui-listbox-indicator">
                             <Check :size="14" />

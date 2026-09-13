@@ -605,7 +605,8 @@ var Ct = /*#__PURE__*/ Y(bt, [["render", St]]), wt = { class: "ui-form-item" }, 
 				_: 3
 			}, 8, ["class", "style"]), l(E(je), null, {
 				default: M(() => [l(E(De), {
-					position: "item-aligned",
+					position: "popper",
+					"side-offset": 4,
 					class: "ui-listbox-content"
 				}, {
 					default: M(() => [
