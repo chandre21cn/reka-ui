@@ -1,26 +1,43 @@
 <script setup lang="ts">
-import { SplitterGroup, SplitterPanel, SplitterResizeHandle } from 'reka-ui'
+import { SplitterGroup, SplitterPanel, SplitterResizeHandle, type SplitterPanelProps, type SplitterPanelEmits } from 'reka-ui'
+
+interface SplitterProps {
+    main?: Partial<SplitterPanelProps>;
+    aside?: Partial<SplitterPanelProps>;
+    asideTop?: Partial<SplitterPanelProps>;
+    asideBottom?: Partial<SplitterPanelProps>;
+}
+
+const props = withDefaults(defineProps<SplitterProps>(), {})
+const emits = defineEmits<SplitterPanelEmits>()
+function onResize(size: number, prevSize?: number) {
+    emits('resize', size, prevSize)
+}
+
 </script>
 
 <template>
     <SplitterGroup direction="horizontal">
-        <SplitterPanel class="ui-splitter-panel">
+
+        <SplitterPanel class="ui-splitter-panel" v-bind="main">
             <slot />
         </SplitterPanel>
 
-        <SplitterResizeHandle class="ui-splitter-handle" />
+        <SplitterResizeHandle class="ui-splitter-handle"/>
 
-        <SplitterPanel>
+        <SplitterPanel v-bind="aside" @collapse="emits('collapse')" @expand="emits('expand')" @resize="onResize">
             <SplitterGroup direction="vertical">
-                <SplitterPanel class="ui-splitter-panel">
+
+                <SplitterPanel class="ui-splitter-panel" v-bind="asideTop">
                     <slot name="top" />
                 </SplitterPanel>
-                
+
                 <SplitterResizeHandle class="ui-splitter-handle" />
 
-                <SplitterPanel class="ui-splitter-panel">
+                <SplitterPanel class="ui-splitter-panel"  v-bind="asideBottom">
                     <slot name="bottom" />
                 </SplitterPanel>
+
             </SplitterGroup>
         </SplitterPanel>
     </SplitterGroup>

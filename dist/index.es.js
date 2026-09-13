@@ -800,31 +800,50 @@ var Ct = /*#__PURE__*/ Y(bt, [["render", St]]), wt = { class: "ui-form-item" }, 
 	defaultVariants: { direction: "horizontal" }
 }), Xt = /* @__PURE__ */ u({
 	__name: "Splitter",
-	setup(e) {
-		return (e, t) => (y(), i(E(L), { direction: "horizontal" }, {
+	props: {
+		main: {},
+		aside: {},
+		asideTop: {},
+		asideBottom: {}
+	},
+	emits: [
+		"collapse",
+		"expand",
+		"resize"
+	],
+	setup(e, { emit: t }) {
+		let n = t;
+		function r(e, t) {
+			n("resize", e, t);
+		}
+		return (t, a) => (y(), i(E(L), { direction: "horizontal" }, {
 			default: M(() => [
-				l(E(R), { class: "ui-splitter-panel" }, {
-					default: M(() => [w(e.$slots, "default")]),
+				l(E(R), m({ class: "ui-splitter-panel" }, e.main), {
+					default: M(() => [w(t.$slots, "default")]),
 					_: 3
-				}),
+				}, 16),
 				l(E(He), { class: "ui-splitter-handle" }),
-				l(E(R), null, {
+				l(E(R), m(e.aside, {
+					onCollapse: a[0] ||= (e) => n("collapse"),
+					onExpand: a[1] ||= (e) => n("expand"),
+					onResize: r
+				}), {
 					default: M(() => [l(E(L), { direction: "vertical" }, {
 						default: M(() => [
-							l(E(R), { class: "ui-splitter-panel" }, {
-								default: M(() => [w(e.$slots, "top")]),
+							l(E(R), m({ class: "ui-splitter-panel" }, e.asideTop), {
+								default: M(() => [w(t.$slots, "top")]),
 								_: 3
-							}),
+							}, 16),
 							l(E(He), { class: "ui-splitter-handle" }),
-							l(E(R), { class: "ui-splitter-panel" }, {
-								default: M(() => [w(e.$slots, "bottom")]),
+							l(E(R), m({ class: "ui-splitter-panel" }, e.asideBottom), {
+								default: M(() => [w(t.$slots, "bottom")]),
 								_: 3
-							})
+							}, 16)
 						]),
 						_: 3
 					})]),
 					_: 3
-				})
+				}, 16)
 			]),
 			_: 3
 		}));
