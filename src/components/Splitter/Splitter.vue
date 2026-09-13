@@ -47,9 +47,6 @@ function onResize(size: number, prevSize?: number) {
 .ui-splitter {
     &-panel {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--color-fill-a3);
     }
 
     &-handle {
