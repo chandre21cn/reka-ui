@@ -80,7 +80,7 @@ export default defineComponent({
         &-item {
             display: inline-flex;
         }
-        &-space-fill &-space-item {
+        &-fill &-item {
             flex: 1
         }
     }
