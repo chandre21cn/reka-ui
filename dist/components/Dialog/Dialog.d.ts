@@ -1,4 +1,3 @@
-import { PointerDownOutsideEvent } from 'reka-ui';
 interface DialogProps {
     title?: string;
     width?: string | number;
@@ -31,19 +30,9 @@ declare const __VLS_base: import('vue').DefineComponent<DialogProps, {
     show(): void;
     hide(): void;
 }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-    escapeKeyDown: (event: KeyboardEvent) => any;
-    pointerDownOutside: (event: PointerDownOutsideEvent) => any;
-    focusOutside: (event: import('reka-ui').FocusOutsideEvent) => any;
-    interactOutside: (event: PointerDownOutsideEvent | import('reka-ui').FocusOutsideEvent) => any;
-    openAutoFocus: (event: Event) => any;
-    closeAutoFocus: (event: Event) => any;
+    close: () => any;
 }, string, import('vue').PublicProps, Readonly<DialogProps> & Readonly<{
-    onEscapeKeyDown?: ((event: KeyboardEvent) => any) | undefined;
-    onPointerDownOutside?: ((event: PointerDownOutsideEvent) => any) | undefined;
-    onFocusOutside?: ((event: import('reka-ui').FocusOutsideEvent) => any) | undefined;
-    onInteractOutside?: ((event: PointerDownOutsideEvent | import('reka-ui').FocusOutsideEvent) => any) | undefined;
-    onOpenAutoFocus?: ((event: Event) => any) | undefined;
-    onCloseAutoFocus?: ((event: Event) => any) | undefined;
+    onClose?: (() => any) | undefined;
 }>, {
     width: string | number;
     title: string;

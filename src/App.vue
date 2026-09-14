@@ -131,7 +131,11 @@ const inputValue = ref('')
                 :width="400" 
                 title="提示" 
                 description="This action cannot be undone. Are you sure you want to permanently delete this file from our servers?"
-                hide-footer
+                @close="() => console.log('关闭')"
+                @cancel="() => {
+                    console.log('cancel')
+                    return false
+                }"
             >
                 <template #trigger>
                     <Button>Dialog</Button>

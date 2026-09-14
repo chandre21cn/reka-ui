@@ -58,11 +58,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { DialogRoot, DialogContent, DialogDescription, DialogPortal, DialogOverlay, DialogTitle, DialogTrigger } from 'reka-ui';
 import { X } from 'lucide-vue-next';
 import { Button } from '../Button';
-import type { DialogContentEmits, PointerDownOutsideEvent } from 'reka-ui'
+import type { PointerDownOutsideEvent } from 'reka-ui'
 
 const visible = ref(false)
 
@@ -105,7 +105,9 @@ const props = withDefaults(defineProps<DialogProps>(), {
     closable: true,
 });
 
-const emits = defineEmits<DialogContentEmits>();
+const emits = defineEmits<{
+    close: []
+}>();
 
 defineExpose({
     show() {
@@ -113,6 +115,13 @@ defineExpose({
     },
     hide() {
         visible.value = false
+    }
+})
+
+// 监听可见状态
+watch(visible, (value) => {
+    if (!value) {
+        emits('close')
     }
 })
 
