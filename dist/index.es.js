@@ -157,7 +157,7 @@ var H = /* @__PURE__ */ u({
 							_: 3
 						}, 512), [[A, !!e.description]])]),
 						w(t.$slots, "default"),
-						!e.hideFooter || !t.$slots.footer ? (y(), o("div", lt, [w(t.$slots, "footer", {}, () => [l(E(H), { onClick: g }, {
+						e.hideFooter ? a("", !0) : (y(), o("div", lt, [w(t.$slots, "footer", {}, () => [l(E(H), { onClick: g }, {
 							default: M(() => [c(T(e.cancelText), 1)]),
 							_: 1
 						}), l(E(H), {
@@ -166,7 +166,7 @@ var H = /* @__PURE__ */ u({
 						}, {
 							default: M(() => [c(T(e.confirmText), 1)]),
 							_: 1
-						})])])) : a("", !0),
+						})])])),
 						e.closable ? (y(), o("button", {
 							key: 1,
 							class: "ui-dialog-close",

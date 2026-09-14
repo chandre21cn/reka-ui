@@ -35,7 +35,7 @@
                 <slot />
                 
                 <!-- 底栏 -->
-                <div class="ui-dialog-footer" v-if="!hideFooter || !$slots.footer">
+                <div class="ui-dialog-footer" v-if="!hideFooter">
                     <slot name="footer">
                         <!-- 取消 -->
                         <Button @click="onClickCancel">

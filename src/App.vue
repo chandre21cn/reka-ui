@@ -127,7 +127,12 @@ const inputValue = ref('')
             <Tag type="warning">Tag 标签</Tag>
         </div>
         <div style="padding: 0px 40px 10px;">
-            <Dialog :width="400" title="提示" description="This action cannot be undone. Are you sure you want to permanently delete this file from our servers?">
+            <Dialog 
+                :width="400" 
+                title="提示" 
+                description="This action cannot be undone. Are you sure you want to permanently delete this file from our servers?"
+                hide-footer
+            >
                 <template #trigger>
                     <Button>Dialog</Button>
                 </template>
