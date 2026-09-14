@@ -238,7 +238,7 @@ onBeforeUnmount(() => {
             font-size: var(--font-size-base);
             color: var(--color-text-3);
             border-radius: inherit;
-            background-color: var(--color-white-a12);
+            background-color: white;
             box-shadow: var(--shadow-line);
             touch-action: none; 
 

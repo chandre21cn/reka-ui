@@ -32,7 +32,7 @@ function onClickToast() {
     Toast.success('网络连接失败');
 }
 
-const numberValue = ref([10])
+const numberValue = ref(10)
 const tabIndex = ref(1)
 const select = ref('')
 
@@ -216,11 +216,15 @@ const inputValue = ref('')
         </div>
 
         <div style="padding: 10px 40px 10px;">
-            <Slider :step="0.1"  :min="0" :max="100" v-model="numberValue" />
+            <Slider :step="0.1"  :min="0" :max="100" v-model="numberValue" disabled/>
         </div>
 
         <div style="padding: 10px 40px 10px;">
-            <Progress :max="100" :model-value="numberValue[0]" />
+            <Slider v-model="numberValue" :values="[2,5,10,30,40,50,60,78,80,90]" @change="console.log" />
+        </div>
+
+        <div style="padding: 10px 40px 10px;">
+            <Progress :max="100" :model-value="numberValue" />
         </div>
         <div style="padding: 10px 40px 10px;">
             <Progress :max="100" :model-value="100" />
@@ -260,7 +264,7 @@ const inputValue = ref('')
                     <Input name="password" type="password"  placeholder="请输入6-18位字母、数字或特殊字符" v-model="inputValue" />
                 </FormItem>
                 <FormItem label="音量" description="请输入6-18位字母、数字或特殊字符">
-                    <template #extra>{{ numberValue[0] }} %</template>
+                    <template #extra>{{ numberValue }} %</template>
                     <Slider :step="0.1"  :min="0" :max="100" v-model="numberValue" />
                 </FormItem>
                 <FormItem>
