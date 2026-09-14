@@ -1,0 +1,42 @@
+import { StyleValue } from 'vue';
+interface Props {
+    activeViewId: number;
+    gridLayoutStyles?: StyleValue;
+    data: {
+        viewId: number;
+        col: number;
+        row: number;
+    }[];
+}
+declare var __VLS_1: {
+    item: {
+        viewId: number;
+        col: number;
+        row: number;
+    };
+};
+type __VLS_Slots = {} & {
+    default?: (props: typeof __VLS_1) => any;
+};
+declare const __VLS_base: import('vue').DefineComponent<Props, {
+    reset: () => void;
+}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {} & {
+    zoom: (isZoomActive: boolean) => any;
+}, string, import('vue').PublicProps, Readonly<Props> & Readonly<{
+    onZoom?: ((isZoomActive: boolean) => any) | undefined;
+}>, {
+    data: {
+        viewId: number;
+        col: number;
+        row: number;
+    }[];
+    gridLayoutStyles: string | false | import('vue').CSSProperties | StyleValue[] | null;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
+declare const __VLS_export: __VLS_WithSlots<typeof __VLS_base, __VLS_Slots>;
+declare const _default: typeof __VLS_export;
+export default _default;
+type __VLS_WithSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};

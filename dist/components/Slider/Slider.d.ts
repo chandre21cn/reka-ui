@@ -4,6 +4,7 @@ interface SliderProps {
     step?: number;
     disabled?: boolean;
     values?: number[];
+    hideThumb?: boolean;
 }
 type __VLS_Props = SliderProps;
 type __VLS_ModelProps = {
@@ -22,6 +23,7 @@ declare const __VLS_export: import('vue').DefineComponent<__VLS_PublicProps, {},
     max: number;
     min: number;
     step: number;
+    hideThumb: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
 declare const _default: typeof __VLS_export;
 export default _default;

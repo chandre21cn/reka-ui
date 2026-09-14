@@ -12,7 +12,7 @@ import { CableIcon, User } from 'lucide-vue-next';
 import { Form, FormItem } from '../src/components/Form'
 import { Space } from '../src/components/Space';
 import Toast from '../src/components/Toast';
-import { ScrollArea, SliderCaptcha, Tag } from './index.ts'
+import { ScrollArea, SliderCaptcha, Tag, Zoom, ZoomGrid } from './index.ts'
 
 const themeRef = ref(false)
 function onClickTheme() {
@@ -216,7 +216,7 @@ const inputValue = ref('')
         </div>
 
         <div style="padding: 10px 40px 10px;">
-            <Slider :step="0.1"  :min="0" :max="100" v-model="numberValue" disabled/>
+            <Slider :step="0.1"  :min="0" :max="100" v-model="numberValue" />
         </div>
 
         <div style="padding: 10px 40px 10px;">
@@ -306,6 +306,16 @@ const inputValue = ref('')
                 <Splitter>
                 </Splitter>
             </div>
+        </div>
+        <div style="padding: 20px 40px 10px;">
+            <Zoom style="width: 400px; height: 400px; background-color: antiquewhite;">
+                <img src="https://inews.gtimg.com/news_ls/OoBNOK_ONgeeiXGpAw7v0PXPOpP2hlRDHr3SB3FxzBwhwAA_870492/0" style="width: 100%; height: 100%;">
+            </Zoom>
+        </div>
+        <div style="padding: 20px 40px 10px;">
+            <ZoomGrid :activeViewId="0" :data="[{ col: 1, row: 1, viewId: 0 },{ col: 1, row: 2, viewId: 1 }]" #default="{ }" gridLayoutStyles="" style="width: 400px; height: 400px; background-color: antiquewhite;">
+                123131
+            </ZoomGrid>
         </div>
 </template>
 

@@ -29,10 +29,11 @@
     "vue": "^3.3.0"
   },
   "dependencies": {
-    "lucide-vue-next": "^1.0.0",
+    "@vueuse/core": "^14.4.0",
     "class-variance-authority": "^0.7.1",
-    "vue-sonner": "^2.0.9",
-    "reka-ui": "^2.10.4"
+    "lucide-vue-next": "^1.0.0",
+    "reka-ui": "^2.10.4",
+    "vue-sonner": "^2.0.9"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",

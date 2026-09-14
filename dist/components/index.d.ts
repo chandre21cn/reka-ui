@@ -13,3 +13,4 @@ export * from './Tag';
 export * from './Icon';
 export * from './ScrollArea';
 export * from './SliderCaptcha';
+export * from './Zoom';
