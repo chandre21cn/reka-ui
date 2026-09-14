@@ -117,6 +117,7 @@
         }
 
         &[data-disabled] {
+            display: none;
             pointer-events: none;
         }
     }
