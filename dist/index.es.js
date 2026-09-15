@@ -369,7 +369,7 @@ var Nt = /*#__PURE__*/ wt(At, [["render", Mt]]), Pt = { class: "ui-form-item" },
 		return (t, n) => (T(), o("div", Pt, [e.label || e.description || t.$slots.extra ? (T(), o("div", Ft, [
 			e.label ? (T(), o("span", It, N(e.label), 1)) : a("", !0),
 			e.description ? (T(), o("span", Lt, N(e.description), 1)) : a("", !0),
-			t.$slots.export ? (T(), o("div", Rt, [A(t.$slots, "extra")])) : a("", !0)
+			t.$slots.extra ? (T(), o("div", Rt, [A(t.$slots, "extra")])) : a("", !0)
 		])) : a("", !0), s("div", zt, [s("div", Bt, [A(t.$slots, "default")]), t.$slots.helper ? (T(), o("div", Vt, [A(t.$slots, "helper")])) : a("", !0)])]));
 	}
 }), Ut = {

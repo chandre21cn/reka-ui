@@ -15,7 +15,7 @@
             <span class="ui-form-item_description" v-if="!!description">
                 {{ description }}
             </span>
-            <div class="ui-form-item_extra" v-if="!!$slots.export">
+            <div class="ui-form-item_extra" v-if="!!$slots.extra">
                 <slot name="extra"></slot>
             </div>
         </div>
