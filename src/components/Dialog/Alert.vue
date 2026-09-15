@@ -7,8 +7,8 @@
         :closable="false"
     >
         <template #footer>
-            <Button  v-if="!!hideCancel" @click="onClickCancel">{{  props.cancelText  }}</Button>
-            <Button v-if="!!hideConfirm" variant="primary" :status="buttonStatus" @click="onClickConfirm">{{  props.confirmText  }}</Button>
+            <Button  v-if="!hideCancel" @click="onClickCancel">{{  props.cancelText  }}</Button>
+            <Button v-if="!hideConfirm" variant="primary" :status="buttonStatus" @click="onClickConfirm">{{  props.confirmText  }}</Button>
         </template>
     </Dialog>
 </template>
@@ -120,8 +120,8 @@ function showAlert(type: AlertProps['type'] = 'info', title: string, message: st
     globalOptions.confirmText      = options?.confirmText ?? '确定';
     globalOptions.cancelText       = options?.cancelText ?? '取消';
     globalOptions.onConfirm        = options?.onConfirm;
-    globalOptions.hideCancel        = options?.hideCancel;
-    globalOptions.hideConfirm        = options?.hideConfirm;
+    globalOptions.hideCancel       = options?.hideCancel;
+    globalOptions.hideConfirm      = options?.hideConfirm;
 
     const vnode = createVNode(AlertComponent, globalOptions);
     render(vnode, container);

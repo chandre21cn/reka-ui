@@ -251,13 +251,13 @@ var bt = {
 			description: n.message,
 			closable: !1
 		}, {
-			footer: R(() => [e.hideCancel ? (T(), i(F(K), {
+			footer: R(() => [e.hideCancel ? a("", !0) : (T(), i(F(K), {
 				key: 0,
 				onClick: l
 			}, {
 				default: R(() => [c(N(n.cancelText), 1)]),
 				_: 1
-			})) : a("", !0), e.hideConfirm ? (T(), i(F(K), {
+			})), e.hideConfirm ? a("", !0) : (T(), i(F(K), {
 				key: 1,
 				variant: "primary",
 				status: o.value,
@@ -265,7 +265,7 @@ var bt = {
 			}, {
 				default: R(() => [c(N(n.confirmText), 1)]),
 				_: 1
-			}, 8, ["status"])) : a("", !0)]),
+			}, 8, ["status"]))]),
 			_: 1
 		}, 8, ["title", "description"]));
 	}
