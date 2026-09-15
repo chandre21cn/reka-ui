@@ -37,12 +37,14 @@
                 <!-- 底栏 -->
                 <div class="ui-dialog-footer" v-if="!hideFooter">
                     <slot name="footer">
+                        
                         <!-- 取消 -->
-                        <Button @click="onClickCancel">
+                        <Button @click="onClickCancel" v-if="!hideCancel">
                             {{  cancelText  }}
                         </Button>
+
                         <!-- 确定 -->
-                        <Button variant="primary" @click="onClickConfirm">
+                        <Button variant="primary" @click="onClickConfirm" v-if="!hideConfirm">
                             {{ confirmText }}
                         </Button>
                     </slot>
@@ -83,6 +85,8 @@ interface DialogProps {
     hideOverlay?: boolean;
     // 是否隐藏取消按钮
     hideCancel?: boolean;
+    // 是否隐藏确定按钮
+    hideConfirm?: boolean;
     // 确认按钮的内容
     confirmText?: string;
     // 取消按钮的内容

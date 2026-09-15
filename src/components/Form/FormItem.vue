@@ -9,13 +9,13 @@
 <template>
     <div class="ui-form-item">
         <div class="ui-form-item-header" v-if="label || description || $slots.extra">
-            <span class="ui-form-item_title">
+            <span class="ui-form-item_title" v-if="!!label">
                 {{ label }}
             </span>
-            <span class="ui-form-item_description">
+            <span class="ui-form-item_description" v-if="!!description">
                 {{ description }}
             </span>
-            <div class="ui-form-item_extra">
+            <div class="ui-form-item_extra" v-if="!!$slots.export">
                 <slot name="extra"></slot>
             </div>
         </div>
@@ -23,7 +23,7 @@
             <div class="ui-form-item_content">
                 <slot />
             </div>
-            <div class="ui-form-item_helper" v-if="$slots.helper">
+            <div class="ui-form-item_helper" v-if="!!$slots.helper">
                 <slot name="helper" />
             </div>
         </div>
@@ -40,7 +40,7 @@
         &-header {
             display: flex;
             align-items: center;
-            gap: var(--size-4);
+            gap: var(--size-2);
         }
         &-container {
             display: flex;

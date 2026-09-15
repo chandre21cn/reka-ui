@@ -74,10 +74,10 @@
 
         &_tick {
             position: absolute;
-            top: 20%;
-            bottom: 20%;
+            top: 30%;
+            bottom: 30%;
             width: 1px;
-            background-color: var(--color-border);
+            border-left: 1px solid var(--color-border);
         }
 
         &_indicator {

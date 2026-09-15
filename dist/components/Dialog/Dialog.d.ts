@@ -7,6 +7,7 @@ interface DialogProps {
     hideFooter?: boolean;
     hideOverlay?: boolean;
     hideCancel?: boolean;
+    hideConfirm?: boolean;
     confirmText?: string;
     cancelText?: string;
     escToClose?: boolean;

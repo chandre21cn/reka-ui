@@ -84,6 +84,7 @@ var K = /* @__PURE__ */ u({
 		hideFooter: { type: Boolean },
 		hideOverlay: { type: Boolean },
 		hideCancel: { type: Boolean },
+		hideConfirm: { type: Boolean },
 		confirmText: { default: "确定" },
 		cancelText: { default: "取消" },
 		escToClose: { type: Boolean },
@@ -152,16 +153,20 @@ var K = /* @__PURE__ */ u({
 							_: 3
 						}, 512), [[ne, !!e.description]])]),
 						A(t.$slots, "default"),
-						e.hideFooter ? a("", !0) : (T(), o("div", ht, [A(t.$slots, "footer", {}, () => [l(F(K), { onClick: _ }, {
+						e.hideFooter ? a("", !0) : (T(), o("div", ht, [A(t.$slots, "footer", {}, () => [e.hideCancel ? a("", !0) : (T(), i(F(K), {
+							key: 0,
+							onClick: _
+						}, {
 							default: R(() => [c(N(e.cancelText), 1)]),
 							_: 1
-						}), l(F(K), {
+						})), e.hideConfirm ? a("", !0) : (T(), i(F(K), {
+							key: 1,
 							variant: "primary",
 							onClick: v
 						}, {
 							default: R(() => [c(N(e.confirmText), 1)]),
 							_: 1
-						})])])),
+						}))])])),
 						e.closable ? (T(), o("button", {
 							key: 1,
 							class: "ui-dialog-close",
@@ -342,7 +347,16 @@ function Mt(e, t) {
 var Nt = /*#__PURE__*/ wt(At, [["render", Mt]]), Pt = { class: "ui-form-item" }, Ft = {
 	key: 0,
 	class: "ui-form-item-header"
-}, It = { class: "ui-form-item_title" }, Lt = { class: "ui-form-item_description" }, Rt = { class: "ui-form-item_extra" }, zt = { class: "ui-form-item-container" }, Bt = { class: "ui-form-item_content" }, Vt = {
+}, It = {
+	key: 0,
+	class: "ui-form-item_title"
+}, Lt = {
+	key: 1,
+	class: "ui-form-item_description"
+}, Rt = {
+	key: 2,
+	class: "ui-form-item_extra"
+}, zt = { class: "ui-form-item-container" }, Bt = { class: "ui-form-item_content" }, Vt = {
 	key: 0,
 	class: "ui-form-item_helper"
 }, Ht = /* @__PURE__ */ u({
@@ -353,9 +367,9 @@ var Nt = /*#__PURE__*/ wt(At, [["render", Mt]]), Pt = { class: "ui-form-item" },
 	},
 	setup(e) {
 		return (t, n) => (T(), o("div", Pt, [e.label || e.description || t.$slots.extra ? (T(), o("div", Ft, [
-			s("span", It, N(e.label), 1),
-			s("span", Lt, N(e.description), 1),
-			s("div", Rt, [A(t.$slots, "extra")])
+			e.label ? (T(), o("span", It, N(e.label), 1)) : a("", !0),
+			e.description ? (T(), o("span", Lt, N(e.description), 1)) : a("", !0),
+			t.$slots.export ? (T(), o("div", Rt, [A(t.$slots, "extra")])) : a("", !0)
 		])) : a("", !0), s("div", zt, [s("div", Bt, [A(t.$slots, "default")]), t.$slots.helper ? (T(), o("div", Vt, [A(t.$slots, "helper")])) : a("", !0)])]));
 	}
 }), Ut = {
