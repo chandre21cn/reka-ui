@@ -58,7 +58,7 @@ function onResize(size: number, prevSize?: number) {
         &:after {
             content: '';
             border-radius: var(--border-radius-full);
-            background-color: var(--color-fill-a7);
+            background-color: var(--color-fill-a8);
         }
         &[data-orientation="horizontal"] {
             width: var(--size-3);
@@ -76,7 +76,7 @@ function onResize(size: number, prevSize?: number) {
         }
         &[data-state='hover'], &[data-state='drag'] {
             &:after {
-                background-color: var(--color-fill-a8);
+                background-color: var(--color-fill-a10);
             }
         }
     }

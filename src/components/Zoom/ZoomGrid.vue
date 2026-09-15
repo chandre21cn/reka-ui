@@ -595,7 +595,6 @@ defineExpose({ reset })
         display: grid;
         min-width: 100%;
         height: 100%;
-        gap: var(--size-2, 8px);
 
         * {
             -webkit-user-drag: none !important;
@@ -603,7 +602,6 @@ defineExpose({ reset })
 
         &.is-shift-active {
             cursor: grab;
-
             * {
                 pointer-events: none !important;
             }

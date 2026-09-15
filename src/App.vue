@@ -12,7 +12,7 @@ import { CableIcon, User } from 'lucide-vue-next';
 import { Form, FormItem } from '../src/components/Form'
 import { Space } from '../src/components/Space';
 import Toast from '../src/components/Toast';
-import { ScrollArea, SliderCaptcha, Tag, Zoom, ZoomGrid } from './index.ts'
+import { Ruler, ScrollArea, SliderCaptcha, Tag, Zoom, ZoomGrid } from './index.ts'
 
 const themeRef = ref(false)
 function onClickTheme() {
@@ -261,10 +261,16 @@ const inputValue = ref('')
                 </FormItem>
                 <FormItem label="密码">
                     <template #extra>130fps</template>
+                    <template #helper>
+                        <Button>复位</Button>
+                    </template>
                     <Input name="password" type="password"  placeholder="请输入6-18位字母、数字或特殊字符" v-model="inputValue" />
                 </FormItem>
                 <FormItem label="音量" description="请输入6-18位字母、数字或特殊字符">
                     <template #extra>{{ numberValue }} %</template>
+                    <template #helper>
+                        <Button>复位</Button>
+                    </template>
                     <Slider :step="0.1"  :min="0" :max="100" v-model="numberValue" />
                 </FormItem>
                 <FormItem>
@@ -275,6 +281,13 @@ const inputValue = ref('')
                             ttl: 180,
                         }
                     }" />
+                </FormItem>
+                <FormItem>
+                    <Ruler 
+                        style="height: 20px;" 
+                        :values="[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" 
+                        v-model="numberValue" 
+                    />
                 </FormItem>
                 <FormItem>
                     <Button variant="primary" long>登录</Button>

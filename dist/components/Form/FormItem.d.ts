@@ -2,11 +2,13 @@ export interface FormItemProps {
     label?: string;
     description?: string;
 }
-declare var __VLS_1: {}, __VLS_3: {};
+declare var __VLS_1: {}, __VLS_3: {}, __VLS_5: {};
 type __VLS_Slots = {} & {
     extra?: (props: typeof __VLS_1) => any;
 } & {
     default?: (props: typeof __VLS_3) => any;
+} & {
+    helper?: (props: typeof __VLS_5) => any;
 };
 declare const __VLS_base: import('vue').DefineComponent<FormItemProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<FormItemProps> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
 declare const __VLS_export: __VLS_WithSlots<typeof __VLS_base, __VLS_Slots>;

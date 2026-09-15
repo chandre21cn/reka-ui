@@ -103,8 +103,8 @@
 
         &_thumb {
             display: block;
-            width: var(--size-6);
-            height: var(--size-6);
+            width: var(--control-height-small);
+            height: var(--control-height-small);
             border-radius: var(--border-radius-small);
             background-color: white;
             transition-duration: 150ms;

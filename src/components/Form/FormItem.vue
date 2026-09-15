@@ -19,7 +19,15 @@
                 <slot name="extra"></slot>
             </div>
         </div>
-        <slot />
+        <div class="ui-form-item-container">
+            <div class="ui-form-item_content">
+                <slot />
+            </div>
+            <div class="ui-form-item_helper" v-if="$slots.helper">
+                <slot name="helper" />
+            </div>
+        </div>
+        
     </div>
 </template>
 
@@ -33,6 +41,11 @@
             display: flex;
             align-items: center;
             gap: var(--size-4);
+        }
+        &-container {
+            display: flex;
+            align-items: center;
+            gap: var(--size-3)
         }
 
         &_title {
@@ -50,5 +63,15 @@
             font-size: var(--font-size-small);
             color: var(--color-text-4);
         }
+
+        &_content {
+            flex: 1;
+        }
+
+        &_helper {
+            flex-shrink: 0;
+        }
+
+        
     }
 </style>
