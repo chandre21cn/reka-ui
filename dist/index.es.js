@@ -186,14 +186,16 @@ var K = /* @__PURE__ */ u({
 	message: "",
 	confirmText: "确定",
 	cancelText: "取消",
-	onConfirm: void 0
+	onConfirm: void 0,
+	hideCancel: !1,
+	hideConfirm: !1
 }), _t = null, J = null;
 function vt() {
 	return J || (J = document.createElement("div"), J.className = "ui-alert", document.body.appendChild(J)), J;
 }
 function yt(e = "info", t, n, r) {
 	let i = vt();
-	q.type = e, q.title = t, q.message = n, q.confirmText = r?.confirmText ?? "确定", q.cancelText = r?.cancelText ?? "取消", q.onConfirm = r?.onConfirm;
+	q.type = e, q.title = t, q.message = n, q.confirmText = r?.confirmText ?? "确定", q.cancelText = r?.cancelText ?? "取消", q.onConfirm = r?.onConfirm, q.hideCancel = r?.hideCancel, q.hideConfirm = r?.hideConfirm;
 	let a = l(xt, q);
 	O(a, i), _t = a.component?.exposed, _t?.open();
 }
