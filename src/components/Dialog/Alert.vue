@@ -83,7 +83,7 @@ import { createVNode, render, reactive } from 'vue';
 
 
 // 配置选项
-type AlertOptions = Pick<AlertProps, 'confirmText' | 'cancelText' | 'onConfirm'>
+type AlertOptions = Pick<AlertProps, 'confirmText' | 'cancelText' | 'onConfirm' | 'hideCancel' | 'hideConfirm'>
 
 const globalOptions = reactive<AlertProps>({
     type: 'info',

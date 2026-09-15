@@ -8,7 +8,7 @@ export interface AlertProps {
     hideConfirm?: boolean;
     onConfirm?: () => boolean | undefined | Promise<boolean | undefined>;
 }
-type AlertOptions = Pick<AlertProps, 'confirmText' | 'cancelText' | 'onConfirm'>;
+type AlertOptions = Pick<AlertProps, 'confirmText' | 'cancelText' | 'onConfirm' | 'hideCancel' | 'hideConfirm'>;
 export declare const Alert: {
     info(title: string, message: string, options?: AlertOptions): void;
     success(title: string, message: string, options?: AlertOptions): void;
