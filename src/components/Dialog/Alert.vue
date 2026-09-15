@@ -7,8 +7,8 @@
         :closable="false"
     >
         <template #footer>
-            <Button @click="onClickCancel">{{  props.cancelText  }}</Button>
-            <Button variant="primary" :status="buttonStatus" @click="onClickConfirm">{{  props.confirmText  }}</Button>
+            <Button  v-if="!!hideCancel" @click="onClickCancel">{{  props.cancelText  }}</Button>
+            <Button v-if="!!hideConfirm" variant="primary" :status="buttonStatus" @click="onClickConfirm">{{  props.confirmText  }}</Button>
         </template>
     </Dialog>
 </template>
@@ -30,6 +30,10 @@ export interface AlertProps {
     confirmText?: string;
     // 取消按钮的内容
     cancelText?: string;
+    // 隐藏取消按键
+    hideCancel?: boolean;
+    // 隐藏确定按键
+    hideConfirm?: boolean;
     // 确定回调
     onConfirm?: () => boolean | undefined | Promise<boolean | undefined>
 }

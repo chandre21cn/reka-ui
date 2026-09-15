@@ -218,46 +218,52 @@ var bt = {
 		message: {},
 		confirmText: { default: "确定" },
 		cancelText: { default: "取消" },
+		hideCancel: { type: Boolean },
+		hideConfirm: { type: Boolean },
 		onConfirm: {}
 	},
 	setup(e, { expose: t }) {
-		let n = e, a = r(() => {
+		let n = e, o = r(() => {
 			switch (n.type) {
 				case "error": return "danger";
 				case "warn": return "warning";
 				case "success": return "success";
 				default: return "normal";
 			}
-		}), o = I("dialogRef");
+		}), s = I("dialogRef");
 		t({
-			open: () => o.value?.show(),
-			close: () => o.value?.hide()
+			open: () => s.value?.show(),
+			close: () => s.value?.hide()
 		});
-		async function s() {
-			o.value?.hide();
+		async function l() {
+			s.value?.hide();
 		}
 		async function u() {
-			n.onConfirm && typeof n.onConfirm == "function" && !await n.onConfirm() || o.value?.hide();
+			n.onConfirm && typeof n.onConfirm == "function" && !await n.onConfirm() || s.value?.hide();
 		}
-		return (e, t) => (T(), i(F(gt), {
+		return (t, r) => (T(), i(F(gt), {
 			ref_key: "dialogRef",
-			ref: o,
+			ref: s,
 			width: 360,
 			title: n.title,
 			description: n.message,
 			closable: !1
 		}, {
-			footer: R(() => [l(F(K), { onClick: s }, {
+			footer: R(() => [e.hideCancel ? (T(), i(F(K), {
+				key: 0,
+				onClick: l
+			}, {
 				default: R(() => [c(N(n.cancelText), 1)]),
 				_: 1
-			}), l(F(K), {
+			})) : a("", !0), e.hideConfirm ? (T(), i(F(K), {
+				key: 1,
 				variant: "primary",
-				status: a.value,
+				status: o.value,
 				onClick: u
 			}, {
 				default: R(() => [c(N(n.confirmText), 1)]),
 				_: 1
-			}, 8, ["status"])]),
+			}, 8, ["status"])) : a("", !0)]),
 			_: 1
 		}, 8, ["title", "description"]));
 	}
