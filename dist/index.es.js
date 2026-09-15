@@ -264,6 +264,7 @@ var bt = {
 }), St = /* @__PURE__ */ u({
 	__name: "DropdownMenu",
 	props: {
+		isDark: { type: Boolean },
 		forceMount: { type: Boolean },
 		loop: { type: Boolean },
 		memoDependencies: {},
@@ -297,15 +298,15 @@ var bt = {
 	],
 	setup(e, { emit: t }) {
 		let n = G(e, t);
-		return (e, t) => (T(), i(F(ye), null, {
-			default: R(({ open: t }) => [l(F(xe), { "as-child": "" }, {
-				default: R(() => [A(e.$slots, "default", { open: t })]),
+		return (t, r) => (T(), i(F(ye), null, {
+			default: R(({ open: r }) => [l(F(xe), { "as-child": "" }, {
+				default: R(() => [A(t.$slots, "default", { open: r })]),
 				_: 2
 			}, 1024), l(F(ve), null, {
-				default: R(() => [l(F(ge), _({ class: "ui-listbox-content" }, F(n)), {
-					default: R(() => [A(e.$slots, "content")]),
+				default: R(() => [l(F(ge), _({ class: "ui-listbox-content" }, F(n), { "data-theme": e.isDark ? "dark" : void 0 }), {
+					default: R(() => [A(t.$slots, "content")]),
 					_: 3
-				}, 16)]),
+				}, 16, ["data-theme"])]),
 				_: 3
 			})]),
 			_: 3

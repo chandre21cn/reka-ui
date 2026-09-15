@@ -1,4 +1,7 @@
 import { DropdownMenuContentProps } from 'reka-ui';
+interface DropdownMenuProps extends DropdownMenuContentProps {
+    isDark?: boolean;
+}
 declare var __VLS_14: {
     open: boolean;
 }, __VLS_28: {};
@@ -7,13 +10,13 @@ type __VLS_Slots = {} & {
 } & {
     content?: (props: typeof __VLS_28) => any;
 };
-declare const __VLS_base: import('vue').DefineComponent<DropdownMenuContentProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+declare const __VLS_base: import('vue').DefineComponent<DropdownMenuProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     escapeKeyDown: (event: KeyboardEvent) => any;
     pointerDownOutside: (event: import('reka-ui').PointerDownOutsideEvent) => any;
     focusOutside: (event: import('reka-ui').FocusOutsideEvent) => any;
     interactOutside: (event: import('reka-ui').PointerDownOutsideEvent | import('reka-ui').FocusOutsideEvent) => any;
     closeAutoFocus: (event: Event) => any;
-}, string, import('vue').PublicProps, Readonly<DropdownMenuContentProps> & Readonly<{
+}, string, import('vue').PublicProps, Readonly<DropdownMenuProps> & Readonly<{
     onEscapeKeyDown?: ((event: KeyboardEvent) => any) | undefined;
     onPointerDownOutside?: ((event: import('reka-ui').PointerDownOutsideEvent) => any) | undefined;
     onFocusOutside?: ((event: import('reka-ui').FocusOutsideEvent) => any) | undefined;
