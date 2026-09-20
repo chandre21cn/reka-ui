@@ -29,7 +29,14 @@ function onClickAlert() {
 }
 
 function onClickToast() {
-    Toast.success('网络连接失败');
+    const loadingRef = Toast.loading(`加载中...`);
+    setTimeout(() => {
+        loadingRef.update({
+            type: 'error',
+            message: '加载失败',
+            persistent: false,
+        })
+    }, 3000)
 }
 
 const numberValue = ref(10)
@@ -315,9 +322,8 @@ const inputValue = ref('')
             </ScrollArea>
         </div>
         <div style="padding: 20px 40px 10px;">
-            <div style="width: 500px; height: 300px; border: 1px solid var(--color-border)">
-                <Splitter>
-                </Splitter>
+            <div style="width: 100%; height: 300px; border: 1px solid var(--color-border)">
+                <Splitter></Splitter>
             </div>
         </div>
         <div style="padding: 20px 40px 10px;">

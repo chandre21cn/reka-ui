@@ -7,7 +7,7 @@
         :closable="false"
     >
         <template #footer>
-            <Button  v-if="!hideCancel" @click="onClickCancel">{{  props.cancelText  }}</Button>
+            <Button v-if="!hideCancel" @click="onClickCancel">{{  props.cancelText  }}</Button>
             <Button v-if="!hideConfirm" variant="primary" :status="buttonStatus" @click="onClickConfirm">{{  props.confirmText  }}</Button>
         </template>
     </Dialog>

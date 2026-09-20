@@ -1,44 +1,61 @@
 <script setup lang="ts">
 import { ToastDescription, ToastRoot } from 'reka-ui'
-import { ref, watch, onMounted } from 'vue';
-import { InfoIcon, XCircleIcon, CheckCircle2, AlertCircleIcon } from 'lucide-vue-next';
+import { ref, onMounted, computed } from 'vue';
+import { InfoIcon, XCircleIcon, CheckCircle2, AlertCircleIcon, Loader2Icon } from 'lucide-vue-next';
 
-export type ToastType = 'info' | 'success' | 'error' | 'warning';
+export type ToastType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
 export interface ToastProps {
     message?: string;
     type?: ToastType;
     duration?: number;
-    onDestroy?: () => void;
+    persistent?: boolean;
 }
 
 const props = withDefaults(defineProps<ToastProps>(), {
     message: '',
     type: 'info',
-    duration: 3000
+    duration: 3000,
+    persistent: false
 });
 
+const emit = defineEmits<{
+    (e: 'destroy'): void;
+}>();
+
 const open = ref(false);
+
+const computedDuration = computed(() => props.persistent ? Infinity : props.duration);
 
 onMounted(() => {
     open.value = true;
 });
 
-watch(open, (newVal) => {
-    if (!newVal && props.onDestroy) {
+const handleOpenChange = (val: boolean) => {
+    open.value = val;
+    if (!val) {
         setTimeout(() => {
-            props.onDestroy?.();
-        }, 200); 
+            emit('destroy');
+        }, 200);
     }
-});
+};
+
 </script>
 
 <template>
-    <ToastRoot v-model:open="open" :duration="props.duration" class="ui-toast-root">
+    <ToastRoot 
+        :open="open" 
+        @update:open="handleOpenChange" 
+        type="background" 
+        :duration="computedDuration" 
+        class="ui-toast-root"
+    >
         <CheckCircle2 v-if="type === 'success'" :class="['ui-toast-icon', type]" />
         <XCircleIcon v-else-if="type === 'error'" :class="['ui-toast-icon', type]" />
         <AlertCircleIcon v-else-if="type === 'warning'" :class="['ui-toast-icon', type]" />
+        <Loader2Icon v-else-if="type === 'loading'" :class="['ui-toast-icon', type]" />
         <InfoIcon v-else :class="['ui-toast-icon', type]" />
+
         <ToastDescription v-if="props.message" class="ui-toast-message">
             {{ props.message }}
         </ToastDescription>
@@ -94,9 +111,11 @@ watch(open, (newVal) => {
             &.success {
                 color: var(--color-success-9);
             }
-            /* 修改段 2：将 &.warn 修正为 &.warning 与 type 匹配 */
             &.warning {
                 color: var(--color-warning-9);
+            }
+            &.loading {
+                animation: ui-spin 1s linear infinite;
             }
         }
     }
