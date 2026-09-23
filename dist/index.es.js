@@ -310,7 +310,7 @@ var St = {
 		function r(e) {
 			e || setTimeout(() => {
 				document.activeElement?.blur();
-			});
+			}, 30);
 		}
 		return (t, a) => (T(), i(F(be), { "onUpdate:open": r }, {
 			default: R(({ open: r }) => [l(F(Se), { "as-child": "" }, {

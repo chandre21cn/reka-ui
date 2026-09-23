@@ -23,7 +23,7 @@ function onOpenChange(isOpen: boolean) {
     setTimeout(() => {
         const activeElement = document.activeElement as HTMLElement | undefined
         activeElement?.blur()
-    })
+    }, 30)
 }
 </script>
 
