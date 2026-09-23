@@ -340,7 +340,7 @@ const inputValue = ref('')
 
 <style lang="less">
 body {
-    background-color: var(--color-fill-1);
+    background-color: var(--color-fill-2);
 }
 .color {
     display: flex;

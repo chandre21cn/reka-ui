@@ -17,10 +17,18 @@ const props = withDefaults(defineProps<DropdownMenuProps>(), {
 })
 const emits = defineEmits<DropdownMenuContentEmits>()
 const forwards = useForwardPropsEmits(props, emits)
+
+function onOpenChange(isOpen: boolean) {
+    if (isOpen) return;
+    setTimeout(() => {
+        const activeElement = document.activeElement as HTMLElement | undefined
+        activeElement?.blur()
+    })
+}
 </script>
 
 <template>
-    <DropdownMenuRoot v-slot="{ open }">
+    <DropdownMenuRoot #default="{ open }" @update:open="onOpenChange">
         <DropdownMenuTrigger as-child>
             <slot :open="open" />
         </DropdownMenuTrigger>

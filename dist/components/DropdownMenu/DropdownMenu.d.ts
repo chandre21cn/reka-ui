@@ -2,13 +2,13 @@ import { DropdownMenuContentProps } from 'reka-ui';
 interface DropdownMenuProps extends DropdownMenuContentProps {
     isDark?: boolean;
 }
-declare var __VLS_14: {
+declare var __VLS_16: {
     open: boolean;
-}, __VLS_28: {};
+}, __VLS_30: {};
 type __VLS_Slots = {} & {
-    default?: (props: typeof __VLS_14) => any;
+    default?: (props: typeof __VLS_16) => any;
 } & {
-    content?: (props: typeof __VLS_28) => any;
+    content?: (props: typeof __VLS_30) => any;
 };
 declare const __VLS_base: import('vue').DefineComponent<DropdownMenuProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     escapeKeyDown: (event: KeyboardEvent) => any;

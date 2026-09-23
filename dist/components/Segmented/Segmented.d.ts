@@ -3,9 +3,9 @@ interface SegmentedProps extends TabsRootProps {
     modelValue?: string | number;
     size?: 'base' | 'small' | 'medium' | 'large';
 }
-declare var __VLS_19: {};
+declare var __VLS_21: {};
 type __VLS_Slots = {} & {
-    default?: (props: typeof __VLS_19) => any;
+    default?: (props: typeof __VLS_21) => any;
 };
 declare const __VLS_base: import('vue').DefineComponent<SegmentedProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     "update:modelValue": (payload: import('reka-ui').StringOrNumber) => any;

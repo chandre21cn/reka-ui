@@ -34,7 +34,7 @@ interface SelectProps extends SelectRootProps {
 
 const props = withDefaults(defineProps<SelectProps>(), {
     size: 'base',
-    placeholder: '请选择'
+    placeholder: ''
 })
 
 const emits = defineEmits<SelectRootEmits>()
@@ -71,10 +71,19 @@ const selectedLabel = computed(() => {
     const match = options.value.find(opt => opt.value === currentVal)
     return match ? match.label : undefined
 })
+
+function onOpenChange(isOpen: boolean) {
+    if (isOpen) return;
+    setTimeout(() => {
+        const activeElement = document.activeElement as HTMLElement | undefined
+        activeElement?.blur()
+    })
+}
+
 </script>
 
 <template>
-    <SelectRoot v-bind="forwards" :model-value="props.modelValue ? String(props.modelValue) : undefined">
+    <SelectRoot v-bind="forwards" :model-value="props.modelValue ? String(props.modelValue) : undefined" @update:open="onOpenChange">
         <SelectTrigger :class="['ui-select', inputVariants(props), $attrs.class]" :style="$attrs.style">
             <span class="ui-input-prefix" v-if="$slots.prefix">
                 <slot name="prefix" />

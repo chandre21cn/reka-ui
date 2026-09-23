@@ -77,7 +77,7 @@
             top: 30%;
             bottom: 30%;
             width: 1px;
-            border-left: 1px solid var(--color-border);
+            border-left: 1px solid var(--color-fill-8);
         }
 
         &_indicator {

@@ -11,18 +11,18 @@ interface SelectProps extends SelectRootProps {
     data: string[] | number[] | SelectOptionData[];
     modelValue?: string | number;
 }
-declare var __VLS_14: {}, __VLS_27: {};
+declare var __VLS_16: {}, __VLS_29: {};
 type __VLS_Slots = {} & {
-    prefix?: (props: typeof __VLS_14) => any;
+    prefix?: (props: typeof __VLS_16) => any;
 } & {
-    suffix?: (props: typeof __VLS_27) => any;
+    suffix?: (props: typeof __VLS_29) => any;
 };
 declare const __VLS_base: import('vue').DefineComponent<SelectProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-    "update:modelValue": (value: import('reka-ui').AcceptableValue) => any;
     "update:open": (value: boolean) => any;
+    "update:modelValue": (value: import('reka-ui').AcceptableValue) => any;
 }, string, import('vue').PublicProps, Readonly<SelectProps> & Readonly<{
-    "onUpdate:modelValue"?: ((value: import('reka-ui').AcceptableValue) => any) | undefined;
     "onUpdate:open"?: ((value: boolean) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: import('reka-ui').AcceptableValue) => any) | undefined;
 }>, {
     size: "base" | "small" | "medium" | "large" | null;
     placeholder: string;

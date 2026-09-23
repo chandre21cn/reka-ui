@@ -8,9 +8,9 @@ interface Props extends PrimitiveProps {
     loadingText?: string;
     long?: boolean;
 }
-declare var __VLS_13: {};
+declare var __VLS_15: {};
 type __VLS_Slots = {} & {
-    default?: (props: typeof __VLS_13) => any;
+    default?: (props: typeof __VLS_15) => any;
 };
 declare const __VLS_base: import('vue').DefineComponent<Props, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<Props> & Readonly<{}>, {
     variant: "primary" | "secondary" | "text" | null;

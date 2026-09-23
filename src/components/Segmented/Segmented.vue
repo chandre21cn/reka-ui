@@ -14,10 +14,15 @@ const props = withDefaults(defineProps<SegmentedProps>(), {
 
 const emits = defineEmits<TabsRootEmits>();
 const forwarded = useForwardPropsEmits(props, emits);
+
+function onOpenChange() {
+    const activeElement = document.activeElement as HTMLElement | undefined
+    activeElement?.blur()
+}
 </script>
 
 <template>
-    <TabsRoot :class="[ segmentedVariants(props), $attrs.class ]" v-bind="forwarded">
+    <TabsRoot :class="[ segmentedVariants(props), $attrs.class ]" v-bind="forwarded" @update:model-value="onOpenChange">
         <TabsList>
             <TabsIndicator class="ui-segmented-indicator" />
             <slot />

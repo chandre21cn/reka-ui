@@ -18,21 +18,21 @@ type __VLS_Slots = {} & {
     prefix?: (props: typeof __VLS_18) => any;
 };
 declare const __VLS_base: import('vue').DefineComponent<AutocompleteProps, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+    "update:open": (value: boolean) => any;
     "update:modelValue": (value: string) => any;
     remove: (value: AutocompleteData) => any;
     highlight: (payload: {
         ref: HTMLElement;
         value: string;
     } | undefined) => any;
-    "update:open": (value: boolean) => any;
 }, string, import('vue').PublicProps, Readonly<AutocompleteProps> & Readonly<{
+    "onUpdate:open"?: ((value: boolean) => any) | undefined;
     "onUpdate:modelValue"?: ((value: string) => any) | undefined;
     onRemove?: ((value: AutocompleteData) => any) | undefined;
     onHighlight?: ((payload: {
         ref: HTMLElement;
         value: string;
     } | undefined) => any) | undefined;
-    "onUpdate:open"?: ((value: boolean) => any) | undefined;
 }>, {
     asChild: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;

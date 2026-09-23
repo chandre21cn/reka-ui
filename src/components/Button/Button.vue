@@ -20,6 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
     isLoading: false,
     loadingText: '',
 });
+
 </script>
 
 <template>
@@ -27,6 +28,7 @@ const props = withDefaults(defineProps<Props>(), {
         :as-child="asChild" 
         :class="[ buttonVariants(props), $attrs.class ]" 
         :disabled="isLoading || $attrs.disabled"
+        @keydown.space.prevent.stop
     >
         <Loader2Icon v-if="isLoading" class="ui-button_loader" />
         <template v-if="!isLoading || (isLoading && !loadingText)">
