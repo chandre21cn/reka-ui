@@ -34,6 +34,8 @@ export interface AlertProps {
     hideCancel?: boolean;
     // 隐藏确定按键
     hideConfirm?: boolean;
+    // 取消回调
+    onCancel?: () => boolean | undefined | Promise<boolean | undefined>
     // 确定回调
     onConfirm?: () => boolean | undefined | Promise<boolean | undefined>
 }
@@ -64,6 +66,9 @@ defineExpose({
 
 // 点击取消
 async function onClickCancel() {
+    if (props.onCancel && typeof props.onCancel == 'function') {
+        if (!await props.onCancel()) return;
+    }
     dialogRef.value?.hide()
 }
 

@@ -223,6 +223,7 @@ var St = {
 		cancelText: { default: "取消" },
 		hideCancel: { type: Boolean },
 		hideConfirm: { type: Boolean },
+		onCancel: {},
 		onConfirm: {}
 	},
 	setup(e, { expose: t }) {
@@ -239,7 +240,7 @@ var St = {
 			close: () => s.value?.hide()
 		});
 		async function l() {
-			s.value?.hide();
+			n.onCancel && typeof n.onCancel == "function" && !await n.onCancel() || s.value?.hide();
 		}
 		async function u() {
 			n.onConfirm && typeof n.onConfirm == "function" && !await n.onConfirm() || s.value?.hide();
