@@ -35,9 +35,9 @@ export interface AlertProps {
     // 隐藏确定按键
     hideConfirm?: boolean;
     // 取消回调
-    onCancel?: () => boolean | undefined | Promise<boolean | undefined>
+    onCancel?: () => void | boolean | undefined | Promise<boolean | undefined | void>
     // 确定回调
-    onConfirm?: () => boolean | undefined | Promise<boolean | undefined>
+    onConfirm?: () => void | boolean | undefined | Promise<boolean | undefined | void>
 }
 
 
