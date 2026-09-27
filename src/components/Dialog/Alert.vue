@@ -88,7 +88,7 @@ import { createVNode, render, reactive } from 'vue';
 
 
 // 配置选项
-type AlertOptions = Pick<AlertProps, 'confirmText' | 'cancelText' | 'onConfirm' | 'hideCancel' | 'hideConfirm'>
+type AlertOptions = Pick<AlertProps, 'confirmText' | 'cancelText' | 'onCancel' | 'onConfirm' | 'hideCancel' | 'hideConfirm'>
 
 const globalOptions = reactive<AlertProps>({
     type: 'info',
@@ -96,6 +96,7 @@ const globalOptions = reactive<AlertProps>({
     message: '',
     confirmText: '确定',
     cancelText: '取消',
+    onCancel: undefined,
     onConfirm: undefined,
     hideCancel: false,
     hideConfirm: false,
@@ -124,6 +125,7 @@ function showAlert(type: AlertProps['type'] = 'info', title: string, message: st
     globalOptions.message          = message;
     globalOptions.confirmText      = options?.confirmText ?? '确定';
     globalOptions.cancelText       = options?.cancelText ?? '取消';
+    globalOptions.onCancel        = options?.onCancel;
     globalOptions.onConfirm        = options?.onConfirm;
     globalOptions.hideCancel       = options?.hideCancel;
     globalOptions.hideConfirm      = options?.hideConfirm;

@@ -187,6 +187,7 @@ var G = /* @__PURE__ */ u({
 	message: "",
 	confirmText: "确定",
 	cancelText: "取消",
+	onCancel: void 0,
 	onConfirm: void 0,
 	hideCancel: !1,
 	hideConfirm: !1
@@ -196,7 +197,7 @@ function bt() {
 }
 function xt(e = "info", t, n, r) {
 	let i = bt();
-	K.type = e, K.title = t, K.message = n, K.confirmText = r?.confirmText ?? "确定", K.cancelText = r?.cancelText ?? "取消", K.onConfirm = r?.onConfirm, K.hideCancel = r?.hideCancel, K.hideConfirm = r?.hideConfirm;
+	K.type = e, K.title = t, K.message = n, K.confirmText = r?.confirmText ?? "确定", K.cancelText = r?.cancelText ?? "取消", K.onCancel = r?.onCancel, K.onConfirm = r?.onConfirm, K.hideCancel = r?.hideCancel, K.hideConfirm = r?.hideConfirm;
 	let a = l(Ct, K);
 	O(a, i), yt = a.component?.exposed, yt?.open();
 }
