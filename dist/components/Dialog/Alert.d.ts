@@ -6,8 +6,8 @@ export interface AlertProps {
     cancelText?: string;
     hideCancel?: boolean;
     hideConfirm?: boolean;
-    onCancel?: () => void | boolean | undefined | Promise<boolean | undefined | void>;
-    onConfirm?: () => void | boolean | undefined | Promise<boolean | undefined | void>;
+    onCancel?: () => void | boolean | Promise<boolean | void>;
+    onConfirm?: () => void | boolean | Promise<boolean | void>;
 }
 type AlertOptions = Pick<AlertProps, 'confirmText' | 'cancelText' | 'onCancel' | 'onConfirm' | 'hideCancel' | 'hideConfirm'>;
 export declare const Alert: {
