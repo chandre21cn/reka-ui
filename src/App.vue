@@ -12,7 +12,7 @@ import { CableIcon, User } from 'lucide-vue-next';
 import { Form, FormItem } from '../src/components/Form'
 import { Space } from '../src/components/Space';
 import Toast from '../src/components/Toast';
-import { Ruler, ScrollArea, SliderCaptcha, Tag, Zoom, ZoomGrid } from './index.ts'
+import { Checkbox, Ruler, ScrollArea, SliderCaptcha, Tag, Zoom, ZoomGrid } from './index.ts'
 
 const themeRef = ref(false)
 function onClickTheme() {
@@ -184,6 +184,11 @@ const inputValue = ref('')
                     </DropdownMenuItem>
                 </template>
             </DropdownMenu>
+        </div>
+        <div style="padding: 10px 40px 10px;">
+            <Checkbox v-model="themeRef">
+                Accept terms and conditions.{{ themeRef }}
+            </Checkbox>
         </div>
         <div style="padding: 10px 40px 10px;">
             <Select size="small" :data="[10,20,30,40,50,60]">
