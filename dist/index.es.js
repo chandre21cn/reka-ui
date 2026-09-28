@@ -808,11 +808,15 @@ var Ft = /*#__PURE__*/ Et(Mt, [["render", Pt]]), It = { class: "ui-form-item" },
 	setup(e, { emit: t }) {
 		let a = e, s = ee(e, "modelValue"), c = t, u = r(() => Array.isArray(a.values) && a.values.length > 0), d = r(() => u.value ? 0 : a.min), f = r(() => u.value ? a.values.length - 1 : a.max), p = r(() => u.value ? 1 : a.step), m = r({
 			get() {
+				let e = s.value;
 				if (u.value) {
-					let e = a.values.findIndex((e) => e === s.value);
-					return [e === -1 ? 0 : e];
+					let t = a.values;
+					if (e === void 0) return [0];
+					let n = t.findIndex((t) => t === e);
+					return n === -1 ? e <= t[0] ? [0] : e >= t[t.length - 1] ? [t.length - 1] : [t.reduce((n, r, i) => Math.abs(r - e) < Math.abs(t[n] - e) ? i : n, 0)] : [n];
 				}
-				return typeof s.value == "number" ? [s.value] : [a.min];
+				let t = typeof e == "number" ? e : a.min;
+				return [Math.max(a.min, Math.min(a.max, t))];
 			},
 			set(e) {
 				let t = e[0] ?? 0, n;

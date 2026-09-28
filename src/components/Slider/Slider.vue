@@ -33,11 +33,27 @@
 
     const sliderValues = computed({
         get() {
+            const val = model.value
+
             if (hasValues.value) {
-                const index = props.values!.findIndex(item => item === model.value)
-                return [index !== -1 ? index : 0]
+                const arr = props.values!
+                if (val === undefined) return [0]
+
+                const exactIndex = arr.findIndex(item => item === val)
+                if (exactIndex !== -1) return [exactIndex]
+
+                if (val <= arr[0]) return [0]
+                if (val >= arr[arr.length - 1]) return [arr.length - 1]
+
+                const closestIndex = arr.reduce((prev, curr, idx) => 
+                    Math.abs(curr - val) < Math.abs(arr[prev] - val) ? idx : prev, 0
+                )
+                return [closestIndex]
             }
-            return typeof model.value === 'number' ? [model.value] : [props.min]
+
+            const rawVal = typeof val === 'number' ? val : props.min
+            const clampedVal = Math.max(props.min, Math.min(props.max, rawVal))
+            return [clampedVal]
         },
         set(val: number[]) {
             const rawIndexOrVal = val[0] ?? 0

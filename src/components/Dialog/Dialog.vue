@@ -197,7 +197,7 @@ async function onClickConfirm(event: PointerEvent) {
         z-index: 50;
         inset: 0;
         animation: ui-fade-in 0.2s ease-out;
-        background-color: var(--color-black-a10);
+        background-color: var(--color-black-a7);
         &[data-state="open"] {
             animation: ui-fade-in 0.2s ease-out;
         }
@@ -237,8 +237,7 @@ async function onClickConfirm(event: PointerEvent) {
         transform: translate(-50%, -50%);
         transition-duration: 200ms;
         font-size: var(--font-size-base);
-        // border: 1px solid var(--color-border-secondary);
-        background-color: var(--color-fill-1);
+        background-color: var(--color-fill-2);
         box-shadow: var(--shadow-6);
         border-radius: var(--border-radius-large);
         padding: var(--size-6);
