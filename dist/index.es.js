@@ -26,7 +26,7 @@ var K = /* @__PURE__ */ u({
 			"as-child": e.asChild,
 			class: y([P(gt)(t), r.$attrs.class]),
 			disabled: e.isLoading || r.$attrs.disabled,
-			onKeydown: s[0] ||= z(B(() => {}, ["prevent", "stop"]), ["space"])
+			onKeydown: s[0] ||= z(B(() => {}, ["prevent", "stop"]), ["enter", "space"])
 		}, {
 			default: R(() => [e.isLoading ? (w(), i(P(pt), {
 				key: 0,
