@@ -18,6 +18,7 @@ declare const __VLS_export: <T extends boolean | string | number = boolean>(__VL
     props: import('vue').PublicProps & __VLS_PrettifyLocal<(CheckboxProps<boolean> & {
         modelValue?: T;
     }) & {
+        onChange?: ((value: T) => any) | undefined;
         "onUpdate:modelValue"?: ((value: T | undefined) => any) | undefined;
     }> & (typeof globalThis extends {
         __VLS_PROPS_FALLBACK: infer P;
@@ -27,7 +28,7 @@ declare const __VLS_export: <T extends boolean | string | number = boolean>(__VL
     slots: {
         default?: (props: {}) => any;
     };
-    emit: (event: "update:modelValue", value: T | undefined) => void;
+    emit: ((e: "change", value: T) => void) & ((event: "update:modelValue", value: T | undefined) => void);
 }>) => import('vue').VNode & {
     __ctx?: NonNullable<Awaited<typeof __VLS_setup>>;
 };

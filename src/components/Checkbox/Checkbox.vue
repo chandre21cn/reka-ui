@@ -24,13 +24,21 @@ const props = withDefaults(defineProps<CheckboxProps>(), {
     required: false,
 })
 
+const emit = defineEmits<{
+    (e: 'change', value: T): void
+}>()
+
 const model = defineModel<T>()
 </script>
 
 <template>
     <label class="ui-checkbox" :class="{ 'is-disabled': disabled }">
         <CheckboxRoot 
-            v-model="model"
+            :model-value="model as any"
+            @update:model-value="(val: unknown) => {
+                model = val as T;
+                emit('change', val as T);
+            }"
             :true-value="trueValue"
             :false-value="falseValue"
             :default-value="defaultValue"

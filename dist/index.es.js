@@ -729,12 +729,14 @@ var It = /*#__PURE__*/ Dt(Nt, [["render", Ft]]), Lt = { class: "ui-form-item" },
 		modelValue: {},
 		modelModifiers: {}
 	}),
-	emits: ["update:modelValue"],
-	setup(e) {
-		let t = F(e, "modelValue");
-		return (n, r) => (w(), o("label", { class: y(["ui-checkbox", { "is-disabled": e.disabled }]) }, [l(P(de), {
-			modelValue: t.value,
-			"onUpdate:modelValue": r[0] ||= (e) => t.value = e,
+	emits: /*@__PURE__*/ g(["change"], ["update:modelValue"]),
+	setup(e, { emit: t }) {
+		let n = t, r = F(e, "modelValue");
+		return (t, i) => (w(), o("label", { class: y(["ui-checkbox", { "is-disabled": e.disabled }]) }, [l(P(de), {
+			"model-value": r.value,
+			"onUpdate:modelValue": i[0] ||= (e) => {
+				r.value = e, n("change", e);
+			},
 			"true-value": e.trueValue,
 			"false-value": e.falseValue,
 			"default-value": e.defaultValue,
@@ -750,7 +752,7 @@ var It = /*#__PURE__*/ Dt(Nt, [["render", Ft]]), Lt = { class: "ui-form-item" },
 			})]),
 			_: 1
 		}, 8, [
-			"modelValue",
+			"model-value",
 			"true-value",
 			"false-value",
 			"default-value",
@@ -758,7 +760,7 @@ var It = /*#__PURE__*/ Dt(Nt, [["render", Ft]]), Lt = { class: "ui-form-item" },
 			"disabled",
 			"required",
 			"name"
-		]), n.$slots.default ? (w(), o("span", cn, [k(n.$slots, "default")])) : a("", !0)], 2));
+		]), t.$slots.default ? (w(), o("span", cn, [k(t.$slots, "default")])) : a("", !0)], 2));
 	}
 }), un = /* @__PURE__ */ u({
 	__name: "Progress",
